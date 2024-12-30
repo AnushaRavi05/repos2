@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text and Font Styling</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    p {
+      font-size: 1.2rem;
+      font-style: italic;
+      text-align: justify;
+      letter-spacing: 1px;
+      word-spacing: 3px;
+    }
+    a {
+      text-decoration: none;
+      color: #3498db;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to CSS Text Styling</h1>
+  <p>This is a simple paragraph with <a href="#">a link</a> styled with CSS. The paragraph text has been italicized, and it uses letter-spacing and word-spacing for better readability.</p>
+</body>
+</html>
