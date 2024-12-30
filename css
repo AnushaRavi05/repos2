@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Layout Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    /* Normal Flow */
+    .normal-flow {
+      background-color: lightgray;
+      padding: 20px;
+    }
+
+    /* Float Layout */
+    .float-layout {
+      overflow: auto;
+    }
+    .float-layout .box {
+      float: left;
+      width: 30%;
+      margin: 10px;
+      background-color: lightblue;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Flexbox Layout */
+    .flexbox-layout {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .flexbox-layout .box {
+      width: 30%;
+      padding: 20px;
+      background-color: lightgreen;
+      text-align: center;
+    }
+
+    /* Grid Layout */
+    .grid-layout {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .grid-layout .box {
+      background-color: lightcoral;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Positioning Layout */
+    .positioning-layout {
+      position: relative;
+      margin-top: 20px;
+    }
+    .positioning-layout .box {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+      height: 100px;
+      background-color: lightyellow;
+      text-align: center;
+      line-height: 100px;
+    }
+
+    /* Multi-Column Layout */
+    .multi-column-layout {
+      column-count: 3;
+      column-gap: 20px;
+      margin-top: 20px;
+      background-color: lightgray;
+      padding: 20px;
+    }
+
+    /* Table Layout */
+    .table-layout {
+      display: table;
+      width: 100%;
+      margin-top: 20px;
+    }
+    .table-layout .row {
+      display: table-row;
+    }
+    .table-layout .cell {
+      display: table-cell;
+      padding: 20px;
+      background-color: lightpink;
+      text-align: center;
+    }
+
+    /* Responsive Layout */
+    @media (max-width: 768px) {
+      .flexbox-layout {
+        flex-direction: column;
+      }
+      .grid-layout {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .float-layout .box {
+        width: 48%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .grid-layout {
+        grid-template-columns: 1fr;
+      }
+      .float-layout .box {
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Normal Flow Example -->
+  <div class="normal-flow">
+    <h2>Normal Flow</h2>
+    <p>This is an example of normal flow layout, where elements are stacked one after the other.</p>
+  </div>
+
+  <!-- Float Layout Example -->
+  <div class="float-layout">
+    <h2>Float Layout</h2>
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+  </div>
+
+  <!-- Flexbox Layout Example -->
+  <div class="flexbox-layout">
+    <h2>Flexbox Layout</h2>
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+  </div>
+
+  <!-- Grid Layout Example -->
+  <div class="grid-layout">
+    <h2>Grid Layout</h2>
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+    <div class="box">Box 4</div>
+    <div class="box">Box 5</div>
+    <div class="box">Box 6</div>
+  </div>
+
+  <!-- Positioning Layout Example -->
+  <div class="positioning-layout">
+    <h2>Positioning Layout</h2>
+    <div class="box">Positioned Box</div>
+  </div>
+
+  <!-- Multi-Column Layout Example -->
+  <div class="multi-column-layout">
+    <h2>Multi-Column Layout</h2>
+    <p>Ls.</p>
+    <p>Nu</p>
+    <p>F</p>
+  </div>
+
+  <!-- Table Layout Example -->
+  <div class="table-layout">
+    <h2>Table Layout</h2>
+    <div class="row">
+      <div class="cell">Cell 1</div>
+      <div class="cell">Cell 2</div>
+      <div class="cell">Cell 3</div>
+    </div>
+    <div class="row">
+      <div class="cell">Cell 4</div>
+      <div class="cell">Cell 5</div>
+      <div class="cell">Cell 6</div>
+    </div>
+  </div>
+
+</body>
+</html>
