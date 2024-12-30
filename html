@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Universal Selector */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Type Selector */
+    h1 {
+      color: blue;
+    }
+
+    /* Class Selector */
+    .highlight {
+      background-color: yellow;
+    }
+
+    /* ID Selector */
+    #unique {
+      font-size: 20px;
+      text-align: center;
+    }
+
+    /* Grouping Selector */
+    h1, h2, p {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Descendant Selector */
+    div p {
+      color: green;
+    }
+
+    /* Child Selector */
+    div > p {
+      font-weight: bold;
+    }
+
+    /* Adjacent Sibling Selector */
+    h1 + p {
+      font-style: italic;
+    }
+
+    /* General Sibling Selector */
+    h1 ~ p {
+      color: darkgray;
+    }
+
+    /* Attribute Selector */
+    [title] {
+      border: 1px solid red;
+    }
+
+    /* Attribute Selector (Exact Value) */
+    input[type="text"] {
+      border: 1px solid black;
+    }
+
+    /* Attribute Selector (Starts With) */
+    a[href^="https"] {
+      color: green;
+    }
+
+    /* Attribute Selector (Ends With) */
+    a[href$=".pdf"] {
+      text-decoration: underline;
+    }
+
+    /* Attribute Selector (Contains) */
+    a[href*="example"] {
+      color: orange;
+    }
+
+    /* Pseudo-class Selector */
+    button:hover {
+      background-color: lightblue;
+    }
+
+    /* Pseudo-class (nth-child) */
+    li:nth-child(odd) {
+      background-color: lightgray;
+    }
+
+    /* Pseudo-class (not) */
+    p:not(.highlight) {
+      font-size: 14px;
+    }
+
+    /* Pseudo-element (::before) */
+    h1::before{
+      content: "🔥 ";
+    }
+
+    /* Pseudo-element (::after) */
+    h1::after {
+      content: " 🌟";
+    }
+
+    /* Advanced Selector (is) */
+    :is(h1, h2, h3) {
+      text-transform: uppercase;
+    }
+
+    /* Advanced Selector (where) */
+    :where(.container, .wrapper) {
+      padding: 10px;
+    }
+
+    /* Advanced Selector (has) */
+    div:has(> img) {
+      border: 2px solid blue;
+    }
+  </style>
+</head>
+<body>
+  <h1>Selectors Example</h1>
+  <h2>Subheading</h2>
+  <div class="container" id="unique">
+    <p>This is a paragraph inside a div.</p>
+    <p class="highlight">This paragraph is highlighted.</p>
+    <a href="https://example.com" title="Example">Example Link</a>
+    <a href="document.pdf" title="PDF">Download PDF</a>
+    <input type="text" placeholder="Enter text here">
+    <img src="example.jpg" alt="Example Image">
+  </div>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+  <p>This is a sibling paragraph.</p>
+  <button>Hover me</button>
+</body>
+</html>
