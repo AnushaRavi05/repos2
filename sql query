@@ -61,6 +61,42 @@ WHERE ((CITY NOT LIKE 'A%'
         AND CITY NOT LIKE '%o'
         AND CITY NOT LIKE '%u'
        ));
+6.Query the list of CITY names from STATION that do not start with vowels and
+do not end with vowels. Your result cannot contain duplicates.
+SELECT DISTINCT CITY
+FROM STATION
+WHERE LEFT(CITY, 1) NOT IN ('A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u')
+  AND RIGHT(CITY, 1) NOT IN ('A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u');
+6.Query the Name of any student in STUDENTS who scored higher than  Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three 
+characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
+SELECT NAME
+FROM STUDENTS
+WHERE MARKS > {Marks}
+ORDER BY SUBSTRING(NAME, LENGTH(NAME) - 2, 3), ID ASC;
+7.Write a query that prints a list of employee names (i.e.: the name attribute)
+from the Employee table in alphabetical order.
+SELECT name
+FROM Employee
+ORDER BY name ASC;
+8.Write a query that prints a list of employee names (i.e.: the name attribute) for employees in Employee having a salary greater than  per month who have been employees for less than  months. 
+Sort your result by ascending employee_id.
+SELECT name
+FROM Employee
+ORDER BY name ASC,ID ASC;
+9.Query the following two values from the STATION table:
+
+The sum of all values in LAT_N rounded to a scale of 2 decimal places.
+The sum of all values in LONG_W rounded to a scale of 2 decimal places.
+SELECT 
+    CAST(ROUND(SUM(LAT_N), 2) AS DECIMAL(10, 2)) AS Sum_LAT_N,
+    CAST(ROUND(SUM(LONG_W), 2) AS DECIMAL(10, 2)) AS Sum_LONG_W
+FROM STATION;
+10.Query the sum of Northern Latitudes (LAT_N) from STATION having values greater than 38.7880 and less than 137.2345
+Truncate your answer to 4 decimal places.
+SELECT 
+    CAST(SUM(LAT_N) AS DECIMAL(10, 4)) AS Truncated_Sum_LAT_N
+FROM STATION
+WHERE LAT_N > 38.7880 AND LAT_N < 137.2345;
 
 
 
