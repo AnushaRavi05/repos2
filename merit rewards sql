@@ -1,3 +1,6 @@
+THERE ARE TWO TABLES NAMELY employee_information and last_quarter_bonus.select employee id and name 
+from employee_information and from last_quarter_bonus whose bonus is greater and equal to 5000
+
 SELECT e.employee_ID, e.name 
 FROM employee_information e
  JOIN last_quarter_bonus b ON e.employee_ID = b.employee_ID
