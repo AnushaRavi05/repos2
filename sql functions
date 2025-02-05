@@ -38,3 +38,89 @@ SELECT SIGN(0) AS sign_value;
 Output: 0 (since it's zero)
 SELECT SIGN(-3) AS sign_value;
 Output: -1 (since -3 is negative)
+CHARACTER FUNCTIONS:
+11. CHR(n)
+Converts an ASCII value to its corresponding character.
+
+SELECT CHR(65) AS character;
+Output: A (since 65 is the ASCII code for 'A').
+12. CONCAT(s1, s2)
+Concatenates two strings s1 and s2.
+
+SELECT CONCAT('Hello', ' World') AS concatenated_string;
+Output: Hello World
+13. LOWER(s1)
+Converts all characters in s1 to lowercase.
+
+SELECT LOWER('HELLO WORLD') AS lower_case_string;
+Output: hello world
+14. UPPER(s1)
+Converts all characters in s1 to uppercase.
+
+SELECT UPPER('hello world') AS upper_case_string;
+Output: HELLO WORLD
+15. LPAD(s1, n, char1)
+Pads s1 on the left to a total length of n with the character char1.
+
+SELECT LPAD('123', 5, '0') AS padded_string;
+Output: 00123 (adds 0 to the left of 123 to make the total length 5).
+16. RPAD(s1, n, char1)
+Pads s1 on the right to a total length of n with the character char1.
+
+SELECT RPAD('123', 5, '0') AS padded_string;
+Output: 12300 (adds 0 to the right of 123 to make the total length 5).
+17. SOUNDEX(s1)
+Returns a four-character code that represents the phonetic sound of s1.
+
+SELECT SOUNDEX('Smith') AS soundex_value;
+Output: S530 (phonetically equivalent to "Smith").
+18. LTRIM(s1, char)
+Removes leading spaces (or specified characters) from s1.
+
+SELECT LTRIM('   Hello', ' ') AS trimmed_string;
+Output: Hello (removes leading spaces).
+19. RTRIM(s1, char)
+Removes trailing spaces (or specified characters) from s1.
+
+SELECT RTRIM('Hello   ', ' ') AS trimmed_string;
+Output: Hello (removes trailing spaces).
+20. REPLACE(s1, search_string, replace_string)
+Replaces occurrences of search_string in s1 with replace_string.
+
+SELECT REPLACE('Hello World', 'World', 'SQL') AS replaced_string;
+Output: Hello SQL
+21. SUBSTR(s1, m)
+Extracts a substring starting from the mth position in s1.
+
+SELECT SUBSTR('Hello World', 7) AS substring;
+Output: World (starting from the 7th character to the end).
+(To extract a specific length of substring)
+
+
+SELECT SUBSTR('Hello World', 7, 5) AS substring;
+Output: World (starting from the 7th character and taking 5 characters).
+22. TRANSLATE(s1, from_str, to_str)
+Replaces characters in s1 from from_str with the corresponding characters in to_str.
+
+SELECT TRANSLATE('abcdef', 'abc', 'xyz') AS translated_string;
+Output: xydef (replaces 'a' with 'x', 'b' with 'y', and 'c' with 'z').
+23. ASCII(s1)
+Returns the ASCII value of the first character in s1.
+
+SELECT ASCII('A') AS ascii_value;
+Output: 65 (ASCII value for 'A').
+24. INSTR(s1, char1)
+Returns the position of the first occurrence of char1 in s1.
+
+SELECT INSTR('Hello World', 'o') AS position;
+Output: 5 (the first occurrence of 'o' is at position 5).
+25. LENGTH(s1)
+Returns the length of s1.
+
+SELECT LENGTH('Hello World') AS string_length;
+Output: 11 (length of the string "Hello World").
+26. INITCAP(s1)
+Capitalizes the first letter of each word in s1.
+
+SELECT INITCAP('hello world') AS initcap_string;
+Output: Hello World
