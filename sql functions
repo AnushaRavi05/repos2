@@ -1,0 +1,40 @@
+1.ABS(n)
+SELECT ABS(-8) AS absolute_value;
+Output: 8
+2.CEIL(n)
+SELECT CEIL(3.2) AS ceil_value;
+Output: 4
+3.FLOOR(n)
+SELECT FLOOR(3.9) AS floor_value;
+Output: 3
+4.MOD(m, n)
+SELECT MOD(17, 5) AS mod_value;
+Output: 2
+5.POWER(m, n)
+SELECT POWER(3, 4) AS power_value;
+Output: 81
+6.SQRT(n)
+SELECT SQRT(16) AS sqrt_value;
+Output: 4
+7.TRUNC(m [,n])
+SELECT TRUNC(5.678, 2) AS truncated_value;
+Output: 5.67
+(For truncating to an integer)
+SELECT TRUNC(5.678) AS truncated_integer;
+Output: 5
+8.ROUND(m [,n])
+SELECT ROUND(5.678, 2) AS rounded_value;
+Output: 5.68
+(For rounding to an integer)
+SELECT ROUND(5.678) AS rounded_integer;
+Output: 6
+9.EXP(n)
+SELECT EXP(1) AS exp_value;
+Output: 2.718281828459045 (approximately)
+10.SIGN(n)
+SELECT SIGN(5) AS sign_value;
+Output: 1 (since 5 is positive)
+SELECT SIGN(0) AS sign_value;
+Output: 0 (since it's zero)
+SELECT SIGN(-3) AS sign_value;
+Output: -1 (since -3 is negative)
