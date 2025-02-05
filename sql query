@@ -143,9 +143,28 @@ UNION ALL
     ORDER BY 
         Name
 );
+13.Query the total population of all cities in CITY where District is California.
 
+SELECT SUM(POPULATION) FROM CITY 
+WHERE District='California';
 
+14.Query the average population of all cities in CITY where District is California.
+SELECT AVG(POPULATION) FROM CITY
+WHERE District='California';
 
+15.Query the average population for all cities in CITY, rounded down to the nearest integer.
+SELECT FLOOR(AVG(POPULATIONS)) FROM CITY
+WHERE District='California';
 
+16.Query the sum of the populations for all Japanese cities in CITY. The COUNTRYCODE for Japan is JPN.
+SELECT SUM(POPULATION) FROM CITY 
+WHERE COUNTRYCODE='JPN';
 
+17.Query the difference between the maximum and minimum populations in CITY.
+select abs(max(population)-min(population)) as difference
+from CITY;
+18.Query a count of the number of cities in CITY having a Population larger than 100000
+SELECT COUNT(*) AS City_Count
+FROM CITY
+WHERE Population > 100000;
 
