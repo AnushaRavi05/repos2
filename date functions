@@ -1,6 +1,3 @@
-
-
-
 SYSDATE
 SELECT SYSDATE FROM dual;
 Output: 06-FEB-2025 14:30:00 (varies based on current date and time).
