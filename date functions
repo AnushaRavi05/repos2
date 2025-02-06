@@ -1,0 +1,47 @@
+
+
+
+SYSDATE
+SELECT SYSDATE FROM dual;
+Output: 06-FEB-2025 14:30:00 (varies based on current date and time).
+
+
+ADD_MONTHS(d, n)
+SELECT ADD_MONTHS(SYSDATE, 3) FROM dual;
+If today is 06-FEB-2025, output will be 06-MAY-2025.
+
+
+
+ROUND(d [, format])
+SELECT ROUND(TO_DATE('15-FEB-2025','DD-MON-YYYY'),'MONTH') FROM dual;
+Output: 01-MAR-2025 (Rounds to the nearest month).
+
+
+TRUNC(d [, format])
+SELECT TRUNC(TO_DATE('15-FEB-2025','DD-MON-YYYY'),'MONTH') FROM dual;
+Output: 01-FEB-2025 (Truncates to the start of the month).
+
+
+MONTHS_BETWEEN(d1, d2)
+SELECT MONTHS_BETWEEN(TO_DATE('01-JUN-2025', 'DD-MON-YYYY'), TO_DATE('01-FEB-2025', 'DD-MON-YYYY')) FROM dual;
+Output: 4.0 (June to February).
+
+
+LAST_DAY(d)
+SELECT LAST_DAY(TO_DATE('06-FEB-2025','DD-MON-YYYY')) FROM dual;
+Output: 28-FEB-2025.
+
+
+NEXT_DAY(date, day)
+SELECT NEXT_DAY(SYSDATE, 'SUNDAY') FROM dual;
+If today is 06-FEB-2025 (Thursday), output will be 09-FEB-2025 (Sunday).
+
+
+TO_CHAR(d, f)
+SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY HH24:MI:SS') FROM dual;
+Output: 06-FEB-2025 14:30:00.
+
+
+TO_DATE(char, 'f')
+SELECT TO_DATE('06-FEB-2025', 'DD-MON-YYYY') FROM dual;
+Output: 06-FEB-2025.
