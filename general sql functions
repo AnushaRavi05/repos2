@@ -1,0 +1,37 @@
+GREATEST(n1, n2, …)
+
+Returns the largest value among the given arguments.
+
+SELECT GREATEST(10, 20, 5, 30) FROM dual;
+Output: 30 (largest value).
+LEAST(n1, n2, …)
+
+Returns the smallest value among the given arguments.
+
+SELECT LEAST(10, 20, 5, 30) FROM dual;
+
+Output: 5 (smallest value).
+NVL(col, value)
+
+Replaces NULL values with the specified replacement value.
+
+SELECT NVL(NULL, 'No Value') FROM dual;
+Output: 'No Value' (since the first argument is NULL).
+DECODE(C, V1, S1, V2, S2, …, D)
+
+Works like a switch-case statement.
+
+SELECT DECODE(2, 1, 'One', 2, 'Two', 3, 'Three', 'Other') FROM dual;
+Output: 'Two' (matches 2).
+UID
+
+Returns the numeric ID of the current user.
+
+SELECT UID FROM dual;
+Output: 101 (varies based on user).
+USER
+
+Returns the username of the current session.
+
+SELECT USER FROM dual;
+Output: 'SCOTT' (if logged in as SCOTT).
