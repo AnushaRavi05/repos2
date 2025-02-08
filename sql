@@ -41,5 +41,9 @@ ORDER BY c.company_code;
  SELECT TRUNC(MAX(LAT_N),4) AS truncated_value
 from STATION
 where LAT_N < 137.2345;
+5.Query the smallest Northern Latitude (LAT_N) from STATION that is greater than 38.7780. Round your answer to 4 decimal places.
+    select ROUND(MIN(LAT_N),4) AS rounded_value
+    from STATION
+    WHERE LAT_N > 38.7780;
     
 
