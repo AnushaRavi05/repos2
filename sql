@@ -45,5 +45,12 @@ where LAT_N < 137.2345;
     select ROUND(MIN(LAT_N),4) AS rounded_value
     from STATION
     WHERE LAT_N > 38.7780;
+6.Given the CITY and COUNTRY tables, query the sum of the populations of all cities where the CONTINENT is 'Asia'.
+
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+    SELECT SUM(POPULATIONS) AS total_population
+    FROM CITY c
+    JOIN COUNTRY co ON c.countrycode=co.code
+    where co.CONTINENT='Asia';
     
 
