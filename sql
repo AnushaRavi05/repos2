@@ -37,5 +37,9 @@ ORDER BY c.company_code;
     select TRUNC(SUM(LAT_N),4) AS truncated value 
     from STATION
     where LAT_N>38.7880  and LAT_N <137.2345 ;
+4.Query the greatest value of the Northern Latitudes (LAT_N) from STATION that is less than 137.2345. Truncate your answer to 4 decimal places.
+ SELECT TRUNC(MAX(LAT_N),4) AS truncated_value
+from STATION
+where LAT_N < 137.2345;
     
 
