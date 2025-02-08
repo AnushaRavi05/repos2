@@ -68,6 +68,30 @@ FROM (
 ) ranked
 GROUP BY row_num
 ORDER BY row_num;
+8.A median is defined as a number separating the higher half of a data set from the lower half. Query the median of the Northern Latitudes (LAT_N) from STATION and round your answer to  decimal places.
+    WITH Ordered_Latitudes AS (
+    SELECT LAT_N, 
+           ROW_NUMBER() OVER (ORDER BY LAT_N) AS RowAsc,
+           COUNT(*) OVER () AS TotalRows
+    FROM STATION
+)
+SELECT 
+    ROUND(
+        CASE 
+            WHEN MOD(TotalRows, 2) = 1 THEN  
+                (SELECT LAT_N 
+                 FROM Ordered_Latitudes 
+                 WHERE RowAsc = (TotalRows + 1) / 2)
+            ELSE  
+                (SELECT AVG(LAT_N) 
+                 FROM Ordered_Latitudes 
+                 WHERE RowAsc IN (TotalRows / 2, TotalRows / 2 + 1))
+        END,
+        4
+    ) AS Median_Latitude
+FROM Ordered_Latitudes
+WHERE RowAsc = 1;
+
 
     
 
