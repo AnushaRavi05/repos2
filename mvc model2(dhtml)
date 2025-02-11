@@ -1,0 +1,173 @@
+A book store tracks the sales of n books in a year for each book.The array contains the price and the quantity stored.
+calculate the total revenue for each book by multiplying by the quantity .display book title,price,quantity sold,total 
+revenue in tabular column  use requred ui design for the program.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore Sales Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+            margin: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            width: 60%;
+            margin: auto;
+            box-shadow: 0px 0px 10px gray;
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background: #007bff;
+            color: white;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Bookstore Sales Tracker</h2>
+
+        <label>Book Name:</label>
+        <input type="text" id="bookName" placeholder="Enter book name">
+        
+        <label>Price:</label>
+        <input type="number" id="bookPrice" placeholder="Enter price">
+        
+        <label>Quantity:</label>
+        <input type="number" id="bookQuantity" placeholder="Enter quantity">
+        
+        <button onclick="bookController.addBook()">Add Book</button>
+
+        <table id="bookTable">
+            <tr>
+                <th>Book Name</th>
+                <th>Price</th>
+                <th>Quantity Sold</th>
+            </tr>
+        </table>
+
+        <button onclick="bookController.calculateRevenue()">Calculate Revenue</button>
+        <h3 id="totalRevenue">Total Revenue: $0</h3>
+    </div>
+
+    <script>
+        
+        class BookModel {
+            constructor() {
+                this.books = [];
+            }
+
+            getBooks() {
+                return this.books;
+            }
+
+            addBook(book) {
+                this.books.push(book);
+            }
+
+            calculateTotalRevenue() {
+                return this.books.reduce((total, book) => total + (book.price * book.quantity), 0);
+            }
+        }
+
+        
+        class BookView {
+            constructor() {
+                this.table = document.getElementById("bookTable");
+                this.revenueElement = document.getElementById("totalRevenue");
+            }
+
+            renderBooks(books) {
+               
+                this.table.innerHTML = `
+                    <tr>
+                        <th>Book Name</th>
+                        <th>Price</th>
+                        <th>Quantity Sold</th>
+                    </tr>
+                `;
+                books.forEach(book => {
+                    let row = this.table.insertRow();
+                    row.insertCell(0).innerText = book.name;
+                    row.insertCell(1).innerText = `$${book.price}`;
+                    row.insertCell(2).innerText = book.quantity;
+                });
+            }
+
+            updateRevenue(revenue) {
+                this.revenueElement.innerText = `Total Revenue: $${revenue}`;
+            }
+
+            clearInputFields() {
+                document.getElementById("bookName").value = "";
+                document.getElementById("bookPrice").value = "";
+                document.getElementById("bookQuantity").value = "";
+            }
+        }
+
+     
+        class BookController {
+            constructor(model, view) {
+                this.model = model;
+                this.view = view;
+            }
+
+            addBook() {
+                const name = document.getElementById("bookName").value;
+                const price = parseFloat(document.getElementById("bookPrice").value);
+                const quantity = parseInt(document.getElementById("bookQuantity").value);
+
+                if (!name || isNaN(price) || isNaN(quantity) || price < 0 || quantity < 0) {
+                    alert("Please enter valid book details.");
+                    return;
+                }
+
+                this.model.addBook({ name, price, quantity });
+                this.view.renderBooks(this.model.getBooks());
+                this.view.clearInputFields();
+            }
+
+            calculateRevenue() {
+                const revenue = this.model.calculateTotalRevenue();
+                this.view.updateRevenue(revenue);
+            }
+        }
+
+      
+        const bookModel = new BookModel();
+        const bookView = new BookView();
+        const bookController = new BookController(bookModel, bookView);
+    </script>
+
+</body>
+</html>
+
