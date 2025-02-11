@@ -1,0 +1,210 @@
+There are balls in a bag .write a html program(html+js=dom) that searches for the colour of the ball entered .
+If found display no of balls of that particular colour in a table format .use required ui and mvc model 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Ball Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .container {
+            width: 50%;
+            background: white;
+            padding: 20px;
+            margin: auto;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .input-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input, select {
+            padding: 10px;
+            width: 150px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .add-btn {
+            background-color: #007bff;
+        }
+
+        .add-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .search-btn {
+            background-color: #28a745;
+            margin-top: 10px;
+        }
+
+        .search-btn:hover {
+            background-color: #218838;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        #searchResult {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>🎨 Color Ball Finder</h2>
+
+        <div class="input-group">
+            <select id="ballColor">
+                <option value="Red">Red</option>
+                <option value="Blue">Blue</option>
+                <option value="Green">Green</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Black">Black</option>
+                <option value="White">White</option>
+            </select>
+            <button class="add-btn" onclick="ballController.addBall()">Add Ball</button>
+        </div>
+
+        <table id="ballTable">
+            <tr>
+                <th>Color</th>
+                <th>Count</th>
+            </tr>
+        </table>
+
+        <div class="input-group">
+            <select id="searchColor">
+                <option value="Red">Red</option>
+                <option value="Blue">Blue</option>
+                <option value="Green">Green</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Black">Black</option>
+                <option value="White">White</option>
+            </select>
+            <button class="search-btn" onclick="ballController.searchBall()">Search Color</button>
+        </div>
+
+        <p id="searchResult">Color Count: 0</p>
+    </div>
+
+    <script>
+      
+        class BallModel {
+            constructor() {
+                this.balls = {};
+            }
+
+            addBall(color) {
+                if (this.balls[color]) {
+                    this.balls[color]++;
+                } else {
+                    this.balls[color] = 1;
+                }
+            }
+
+            getBalls() {
+                return this.balls;
+            }
+
+            searchBall(color) {
+                return this.balls[color] || 0;
+            }
+        }
+
+       
+        class BallView {
+            constructor() {
+                this.table = document.getElementById("ballTable");
+                this.searchResult = document.getElementById("searchResult");
+            }
+
+            renderBalls(balls) {
+                this.table.innerHTML = `
+                    <tr>
+                        <th>Color</th>
+                        <th>Count</th>
+                    </tr>
+                `;
+                Object.keys(balls).forEach(color => {
+                    let row = this.table.insertRow();
+                    row.insertCell(0).innerText = color;
+                    row.insertCell(1).innerText = balls[color];
+                });
+            }
+
+            updateSearchResult(count) {
+                this.searchResult.innerText = `Color Count: ${count}`;
+            }
+        }
+
+      
+        class BallController {
+            constructor(model, view) {
+                this.model = model;
+                this.view = view;
+            }
+
+            addBall() {
+                const color = document.getElementById("ballColor").value;
+                this.model.addBall(color);
+                this.view.renderBalls(this.model.getBalls());
+            }
+
+            searchBall() {
+                const color = document.getElementById("searchColor").value;
+                const count = this.model.searchBall(color);
+                this.view.updateSearchResult(count);
+            }
+        }
+
+        
+        const ballModel = new BallModel();
+        const ballView = new BallView();
+        const ballController = new BallController(ballModel, ballView);
+    </script>
+
+</body>
+</html>
