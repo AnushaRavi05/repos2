@@ -159,6 +159,28 @@ Write a solution to find the ids of products that are both low fat and recyclabl
     SELECT product_id  AS productid
     FROM products
     WHERE low_fats='y' AND recyclable='y';
+12.Table: Customer
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| name        | varchar |
+| referee_id  | int     |
++-------------+---------+
+In SQL, id is the primary key column for this table.
+Each row of this table indicates the id of a customer, their name, and the id of the customer who referred them.
+ 
+
+Find the names of the customer that are not referred by the customer with id = 2.
+
+Return the result table in any order.
+
+    SELECT name AS name
+    FROM Customer
+    WHERE referee_id IS NULL OR referee_id!=2;
+
+
 
 
     
