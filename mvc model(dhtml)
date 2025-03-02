@@ -94,7 +94,7 @@ If found display no of balls of that particular colour in a table format .use re
 <body>
 
     <div class="container">
-        <h2>🎨 Color Ball Finder</h2>
+        <h2>Color Ball Finder</h2>
 
         <div class="input-group">
             <select id="ballColor">
